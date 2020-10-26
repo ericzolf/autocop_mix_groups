@@ -1,0 +1,8 @@
+---
+# tasks file for autocop_mix_groups
+- name: group hosts by openstack.location.project.name
+  group_by:
+    key: "grp_project_{{ openstack.location.project.name | default('NONE') }}"
+- name: group hosts by openstack.name
+  group_by:
+    key: "grp_name_{{ openstack.name | default('NONAME') }}"
